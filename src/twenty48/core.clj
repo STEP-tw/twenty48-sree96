@@ -46,7 +46,9 @@
    move-grid-right
    transpose))
 
-; (defn move-grid-up
-;   "Moves an entire grid up"
-;   [grid]
-;   grid)
+(def move-grid-up
+  "Moves an entire grid up"
+  (comp
+   transpose
+   move-grid-left
+   transpose))

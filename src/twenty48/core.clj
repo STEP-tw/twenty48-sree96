@@ -26,15 +26,16 @@
    append-zeros-left
    (juxt count move-left)))
 
+(def move-right-and-append-zeros
+  (comp reverse move-left-and-append-zeros reverse))
 
 (def move-grid-left
   "Moves an entire grid to the left"
   (partial map move-left-and-append-zeros))
 
-; (defn move-grid-right
-;   "Moves an entire grid to the right"
-;   [grid]
-;   grid)
+(def move-grid-right
+  "Moves an entire grid to the right"
+  (partial map move-right-and-append-zeros))
 
 ; (defn move-grid-down
 ;   "Moves an entire grid down"

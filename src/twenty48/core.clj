@@ -37,10 +37,14 @@
   "Moves an entire grid to the right"
   (partial map move-right-and-append-zeros))
 
-; (defn move-grid-down
-;   "Moves an entire grid down"
-;   [grid]
-;   grid)
+(def transpose (partial apply map list))
+
+(def move-grid-down
+  "Moves an entire grid down"
+  (comp
+   transpose
+   move-grid-right
+   transpose))
 
 ; (defn move-grid-up
 ;   "Moves an entire grid up"
